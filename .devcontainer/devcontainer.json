@@ -1,0 +1,20 @@
+{
+  "name": "Python 3 Orchestrator Dev",
+  // Use the official Microsoft Python 3 image.
+  "image": "mcr.microsoft.com/devcontainers/python:3.11-bullseye",
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+      ]
+    }
+  },
+
+  // This command runs after the container is created.
+  "postCreateCommand": "pip install --upgrade pip"
+}
