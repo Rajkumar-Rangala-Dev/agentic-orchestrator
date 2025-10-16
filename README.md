@@ -68,6 +68,42 @@ The UI is simple. On the left, you define your workflow as a JSON object. On the
 1.  **Define a Workflow:**
     Paste a workflow definition into the text area. For example, use the "Agentic User Onboarding" workflow to test the system's ability to choose between a "premium" and "standard" user path.
 
+    ## Example Workflow: Agentic User Onboarding
+    To get you started, here's the JSON for the agentic user onboarding workflow. Just copy and paste this into the UI to test the system's dynamic routing capabilities.
+    {
+    "name": "Agentic User Onboarding",
+    "start_at": "step_start",
+    "nodes": {
+        "step_start": {
+            "class": "StartNode",
+            "next_node": "step_get_user"
+        },
+        "step_get_user": {
+            "class": "GetUserDataNode",
+            "next_node": "step_route_user"
+        },
+        "step_route_user": {
+            "class": "RouteUserByTypeNode"
+        },
+        "step_escalate": {
+            "class": "EscalateToPremiumSupportNode",
+            "next_node": "step_send_email"
+        },
+        "step_standard_process": {
+            "class": "ProcessStandardUserNode",
+            "next_node": "step_send_email"
+        },
+        "step_send_email": {
+            "class": "SendWelcomeEmailNode",
+            "next_node": "step_end"
+        },
+        "step_end": {
+            "class": "EndNode"
+        }
+    }
+}
+By default, the GetUserDataNode will create a **"premium" ** user. To test the agent's other path, you can edit orchestrator/nodes.py and change the user_type to "standard".
+
 2.  **Save and Run:**
     Click **Save Workflow**, which registers it with the engine. Then click **Run Saved Workflow** to kick it off.
 
