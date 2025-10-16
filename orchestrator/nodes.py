@@ -35,7 +35,7 @@ class GetUserDataNode(BaseNode):
         await asyncio.sleep(1) #I/O operation
         state['payload']['user_name'] = "Alex"
         state['payload']['user_email'] = "Alex@example.com"
-        state['payload']['user_type'] = "standard"
+        state['payload']['user_type'] = "Premium"
         state['history'].append(self.node_id)
         return state
 
