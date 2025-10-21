@@ -114,3 +114,13 @@ By default, the `GetUserDataNode` will create a "premium" user. To test the agen
 
 3.  **Watch the Magic:**
     You'll see the status update in real-time on the right. Check the terminal logs to see the detailed step-by-step execution and the agent's decisions.
+
+---
+## 🎯 Future Roadmap
+
+This project is in active development. Here are the next big features on the roadmap:
+
+* [ ] **Database Persistence:** Move workflow state from Redis to a persistent SQL database (like PostgreSQL) for long-term logging and auditing.
+* [ ] **Visual Workflow Builder:** A drag-and-drop UI (using a library like React Flow) to build workflows instead of writing JSON.
+* [ ] **More Node Types:** Add a library of pre-built nodes for common tasks (e.g., `SendSlackMessage`, `QueryDatabase`, `CallLLM`).
+* [ ] **CI/CD Pipeline:** Implement GitHub Actions to automatically run tests and deploy the API.
