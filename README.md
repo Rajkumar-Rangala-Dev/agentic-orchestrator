@@ -17,6 +17,7 @@ At its heart, our system is a **hybrid**. It can execute a simple, predefined se
 ---
 
 ## 💡 Core Architecture
+  ![Agentic Orchestrator Architecture](assets/architecture.png)
 
 We didn't just want to build a script; we wanted to build a proper framework. We based our design on a few key principles you'd find in a real production system.
 
@@ -27,6 +28,7 @@ We didn't just want to build a script; we wanted to build a proper framework. We
 * **Decoupled API Layer:** The core engine is separate from the outside world. We've exposed its power through a **FastAPI** REST API. This means any UI, script, or external service can control it.
 
 * **Pluggable Node System:** Every task is a self-contained Python class that inherits from a `BaseNode`. This makes the system incredibly extensible. To add a new tool or integration, you just write a new class and add it to the registry—no need to touch the core engine code.
+
 
 ---
 
@@ -64,6 +66,7 @@ Ready to see it in action? Here’s how to get it running.
 ## 🕹️ How to Use It
 
 The UI is simple. On the left, you define your workflow as a JSON object. On the right, you can execute it and see the live status.
+![Agentic Orchestrator Demo](assets/Demo.gif)
 
 1.  **Define a Workflow:**
     Paste a workflow definition into the text area. For example, use the "Agentic User Onboarding" workflow to test the system's ability to choose between a "premium" and "standard" user path.
@@ -115,6 +118,8 @@ By default, the `GetUserDataNode` will create a "premium" user. To test the agen
 3.  **Watch the Magic:**
     You'll see the status update in real-time on the right. Check the terminal logs to see the detailed step-by-step execution and the agent's decisions.
 
+
+
 ---
 ## 🎯 Future Roadmap
 
@@ -124,3 +129,18 @@ This project is in active development. Here are the next big features on the roa
 * [ ] **Visual Workflow Builder:** A drag-and-drop UI (using a library like React Flow) to build workflows instead of writing JSON.
 * [ ] **More Node Types:** Add a library of pre-built nodes for common tasks (e.g., `SendSlackMessage`, `QueryDatabase`, `CallLLM`).
 * [ ] **CI/CD Pipeline:** Implement GitHub Actions to automatically run tests and deploy the API.
+* [ ] 
+
+---
+## 🤝 How to Contribute
+
+I welcome contributions! If you have an idea for a new feature or find a bug, please:
+
+1.  Fork the repository.
+2.  Create a new branch (`git checkout -b feat/my-new-feature`).
+3.  Make your changes.
+4.  Open a Pull Request.
+
+Feel free to open an issue to discuss a new idea first!
+
+
