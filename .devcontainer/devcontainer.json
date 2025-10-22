@@ -3,6 +3,10 @@
   // Use the official Microsoft Python 3 image.
   "image": "mcr.microsoft.com/devcontainers/python:3.11-bullseye",
 
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+
   "customizations": {
     "vscode": {
       "settings": {
@@ -10,11 +14,13 @@
       },
       "extensions": [
         "ms-python.python",
-        "ms-python.vscode-pylance"
+        "ms-python.vscode-pylance",
+        "ms-azuretools.vscode-docker"
       ]
     }
   },
 
   // This command runs after the container is created.
-  "postCreateCommand": "pip install --upgrade pip"
+  "postCreateCommand": ["dockerd-entrypoint.sh &" ,"pip install --upgrade pip"]
 }
+
