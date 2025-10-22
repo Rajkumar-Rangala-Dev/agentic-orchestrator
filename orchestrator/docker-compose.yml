@@ -1,0 +1,30 @@
+#docker-compose version
+version: '3.8'
+
+
+services:
+  # The Redis service
+  redis:
+    # redis image
+    image: "redis:alpine"
+    # Exposing the Redis port to local machine 
+    ports:
+      - "6379:6379"
+    # service name
+    container_name: orchestrator_redis
+
+  # FastAPI application service
+  api:
+    # Build the image from the Dockerfile in the current directory (.)
+    build: .
+    ports:
+      - "8000:8000"
+    # This ensures that Redis is started before your API starts.
+    depends_on:
+      - redis
+    # passing the enviroment variables
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    # giving this service a name
+    container_name: orchestrator_api

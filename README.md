@@ -34,33 +34,28 @@ We didn't just want to build a script; we wanted to build a proper framework. We
 
 ## ⚙️ How to Run It
 
-Ready to see it in action? Here’s how to get it running.
+This project is fully containerized using Docker. You don't need to install Python or Redis on your machine.
 
-1.  **Set up the Environment:**
-    First, make sure you're inside the virtual environment.
+**Prerequisites:**
+* [Docker](https://www.docker.com/get-started/) installed.
+
+**Running the Application:**
+
+1.  **Clone the repository:**
     ```bash
-    # Activate the environment
-    source .venv/bin/activate
+    git clone [https://github.com/Rajkumar-Rangala-Dev/agentic-orchestrator.git](https://github.com/Rajkumar-Rangala-Dev/agentic-orchestrator.git)
+    cd agentic-orchestrator
+    ```
+
+2.  **Launch the services:**
+    From the root directory, run the following command. This will build the API image, pull the Redis image, and start both services.
+    ```bash
+    docker-compose up
+    ```
+
+3.  **Access the UI:**
+    Open your web browser and navigate to `http://localhost:8000`. The API and UI will be running.
     
-    # Install all the needed packages
-    pip install -r requirements.txt
-    ```
-
-2.  **Start the Redis Database:**
-    The engine needs its memory, so let's start up Redis.
-    ```bash
-    sudo service redis-server start
-    ```
-
-3.  **Launch the API Server:**
-    Now, fire up the main application.
-    ```bash
-    uvicorn api:app --reload
-    ```
-
-4.  **Open the UI:**
-    Your Codespace will forward port 8000. Just open the forwarded URL in your browser to access the control panel.
-
 ---
 
 ## 🕹️ How to Use It
