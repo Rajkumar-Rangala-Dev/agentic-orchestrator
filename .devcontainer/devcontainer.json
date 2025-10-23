@@ -21,6 +21,6 @@
   },
 
   // This command runs after the container is created.
-  "postCreateCommand": ["dockerd-entrypoint.sh &" ,"pip install --upgrade pip"]
+  "postCreateCommand": ["dockerd-entrypoint.sh &","pip install --upgrade pip"]
 }
 
